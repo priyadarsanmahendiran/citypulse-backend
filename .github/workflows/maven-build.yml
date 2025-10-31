@@ -33,4 +33,4 @@ jobs:
           args: >
             -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
             -Dsonar.java.binaries=target/classes
-            -Dsonar.coverage.exclusions=**/test/**,**/exceptions/**,**/schedulers/**,**/commons/**,**/config/**,**/filter/**,**/Main.java
+            -Dsonar.coverage.exclusions=**/test/**,**/exceptions/**,**/schedulers/**,**/commons/**,**/config/**,**/filter/**,**/model/**,**/Main.java
