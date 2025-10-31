@@ -1,0 +1,36 @@
+name: Maven Build
+
+on:
+  pull_request:
+    branches: [ main ]
+
+env:
+  SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  DB_PASSWORD: ${{ secrets.DB_PASSWORD }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up JDK
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '25'
+
+      - name: Build with Maven
+        run: mvn clean verify
+
+      - name: SonarQube Scan
+        uses: SonarSource/sonarqube-scan-action@v5
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args: >
+            -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+            -Dsonar.java.binaries=target/classes
+            -Dsonar.coverage.exclusions=**/test/**,**/exceptions/**,**/schedulers/**,**/commons/**,**/config/**,**/filter/**,**/model/**,**/Main.java
