@@ -2,6 +2,7 @@ package com.citypulse.controller.interfaces;
 
 import com.citypulse.model.response.CitySummary;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -13,5 +14,5 @@ public interface ICityController {
     List<String> getAllCities();
 
     @GetMapping("{cityName}/summary")
-    CitySummary getCitySummary(String cityName);
+    CitySummary getCitySummary(@PathVariable("cityName") String cityName);
 }
