@@ -1,6 +1,7 @@
 package com.citypulse.model.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -8,6 +9,7 @@ import java.time.LocalDateTime;
 
 @Entity
 @Data
+@AllArgsConstructor
 @Table(name = "city")
 public class CityEntity {
 
