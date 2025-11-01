@@ -21,7 +21,7 @@ public class CityPulseScheduler {
     @Value("{aqi.api.url}")
     private String aqiApiUrl;
 
-    @Scheduled(cron = "*/15 * * * * *")
+    @Scheduled(cron = "* */15 * * * *")
     public void fetchCityPulse() {
         log.info("Fetching data from external source...");
 
