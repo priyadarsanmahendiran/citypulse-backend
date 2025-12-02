@@ -33,22 +33,22 @@ class IngestionServiceTest {
     Firestore firestore;
 
     @Mock
+    QuerySnapshot citiesSnapshot;
+
+    @Mock
     MetricConfig metricConfig;
+
+    @Mock
+    ApiFuture<QuerySnapshot> citiesFuture;
+
+    @Mock
+    QueryDocumentSnapshot cityDoc;
 
     @Mock
     CollectionReference citiesCollection;
 
     @Mock
     Query citiesQuery;
-
-    @Mock
-    ApiFuture<QuerySnapshot> citiesFuture;
-
-    @Mock
-    QuerySnapshot citiesSnapshot;
-
-    @Mock
-    QueryDocumentSnapshot cityDoc;
 
     @BeforeEach
     void setup() throws Exception {

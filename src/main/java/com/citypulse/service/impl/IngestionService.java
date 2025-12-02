@@ -40,7 +40,7 @@ public class IngestionService {
                 processCityMetrics(cityDoc);
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            log.error("Error during ingestion: {}", e.getMessage());
         }
     }
 
